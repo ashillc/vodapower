@@ -1,0 +1,30 @@
+{
+    "existingUser": {
+        "Header": "",
+        "Body": {
+            "customerDetails": {
+                "accountNumber": "1-SDDCSEERI",
+                "title": "MR",
+                "initials": "j",
+                "firstName": "Johan",
+                "surname": "Oschman",
+                "secondName": "",
+                "idType": "SA ID No",
+                "idPassportNumber": 8407055197080,
+                "countryOfOrigin": "South Africa",
+                "dateOfBirth": "1984-07-05",
+                "gender": "M",
+                "maritalStatus": "Single"
+            },
+            "employmentDetails": {
+                "occupationCode": "SE",
+                "employerName": "BBD",
+                "monthlyIncome": 3000,
+                "salaryDay": 25,
+                "occupation": "ACCOUNTANT",
+                "employmentCategoryCode": "E",
+                "salaryFrequency": "Monthly"
+            }
+        }
+    }
+}

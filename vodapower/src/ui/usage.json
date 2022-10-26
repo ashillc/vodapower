@@ -1,0 +1,55 @@
+{
+    "result": {
+        "Customer": {
+            "totalMonthlySubscription": 980,
+            "secondaryPortfolioId": "",
+            "secondaryTariffLimit": "",
+            "currentHandset": "HUAWEI P20 LITE BLUE",
+            "currentTariff": "RED SELECT+"
+        },
+        "consumption": {
+            "spendMinusSubsc": 0,
+            "averageSpend": 980,
+            "bill": 1005.08,
+            "handsetFinance": 0,
+            "subscription": 980,
+            "usage": {
+                "data": 6334,
+                "sms": 1,
+                "voice": 242
+            }
+        },
+        "plan": {
+            "PackageCode": {
+                "EppixCode": "SRX"
+            }
+        },
+        "currentDeal": {
+            "packages": [
+                {
+                    "packageDescription": "Red Select +",
+                    "originalPackageCode": "SRX",
+                    "packageTypeName": "Red",
+                    "includedData": 2048,
+                    "includedMinutes": 800,
+                    "includedSms": -1
+                }
+            ]
+        },
+        "accountSummary": {
+            "plan": "RED SELECT+",
+            "upgradeDue": "17 June 2020",
+            "startDate": "Not Available",
+            "endDate": "15 November 2020"
+        },
+        "currentDevice": {
+            "deviceManufacturer": "Huawei Technologies",
+            "deviceModel": "Huawei P9",
+            "simType": "64K"
+        },
+        "balances": {
+            "serviceType": "DATA",
+            "totalThreshold": 0
+        }
+    }
+}

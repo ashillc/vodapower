@@ -1,0 +1,123 @@
+{
+    "Envelope": {
+        "Header": "",
+        "Body": {
+            "submitNewVodacomBusinessApplication": {
+                "pNewVBApplication": {
+                    "appBankingDetails": {
+                        "bankAccountName": "H.C.VORSTER",
+                        "bankAccountNumber": 331330326,
+                        "bankAccountOpenMonths": 5,
+                        "bankAccountOpenYears": 9,
+                        "bankAccountType": "Current",
+                        "bankBranchCode": 51001,
+                        "bankName": "STANDARD BANK SA",
+                        "paymentType": "D",
+                        "directDebitCode": "DWL"
+                    },
+                    "appCurrentExposure": {
+                        "currentMonthlyRecurringCost": 0,
+                        "currentUnpaidTotal": 0,
+                        "currentUsage": 0
+                    },
+                    "appCompanyDetails": {
+                        "companyBusinessName": "DR HC VORSTER",
+                        "companyCCPRefNumber": "",
+                        "companyDateOfRegistration": "1992-01-01T00:00:00.000Z",
+                        "companyOtherRegistration": "",
+                        "companyRegistrationNumber": "",
+                        "companySector": "OTHER SERVICE ACTIVITIES",
+                        "companyTradingName": "",
+                        "companyTradingNumberOfMonths": 4,
+                        "companyTradingNumberOfYears": 28,
+                        "companyType": "Unregistered Entity",
+                        "creditLimit": 0,
+                        "companyVATRegNumber": "",
+                        "companyWebSiteAddress": ""
+                    },
+                    "appContactDetails": {
+                        "contactFaxCode": "",
+                        "contactFaxNumber": "",
+                        "contactNumberCode": 82,
+                        "contactTelephoneNumber": 4472855,
+                        "emailAddress": "drhcvorster@telkomsa.net",
+                        "postal1": "POSTNET SUITE 214",
+                        "postal2": 214,
+                        "postal3": "WITBANK UIT 7 WITBANK",
+                        "postal4": "Gauteng",
+                        "postal5": 1035,
+                        "residential1": "51A CENTAURY AVENUE",
+                        "residential2": "",
+                        "residential3": "WITBANK UIT 7 WITBANK",
+                        "residential4": "Gauteng",
+                        "residential5": 1035
+                    },
+                    "appCreditCardDetails": {
+                        "creditCardExpiryMonth": 0,
+                        "creditCardExpiryYear": 0,
+                        "creditCardNumber": 0,
+                        "creditCardStatus": "",
+                        "creditCardType": "",
+                        "CVCNumber": 0
+                    },
+                    "appCustomerDetails": {
+                        "ApplicantCustomerDetailsDTO": {
+                            "customerBirthDate": "1959-03-12T00:00:00.000Z",
+                            "customerFirstName": "HC",
+                            "customerGenderType": "F",
+                            "customerIDNumber": 5903120027081,
+                            "customerIDType": "SA ID No",
+                            "customerInitials": "H",
+                            "customerOccupation": "DOCTOR",
+                            "customerPeriodAsPrinciple": 10,
+                            "customerSurname": "Vorster",
+                            "customerTitle": "DR",
+                            "customerDesignation": "DOCTOR",
+                            "customerPassportExpiryDate": "",
+                            "customerCountryOfOrigin": "ZA"
+                        }
+                    },
+                    "appVBProductDTO": {
+                        "ApplicantVodacomBusinessProductDTO": {
+                            "ProductType": "GSM",
+                            "ProductCategory": "Airtime",
+                            "NumberOfLines": 3,
+                            "ContractRequirements": "AIRTIME",
+                            "VBProductExpectedUsage": 0
+                        }
+                    },
+                    "contractNumber": "SE223371570",
+                    "signatory": "HC Vorster",
+                    "invoiceDelivery": "EMAIL",
+                    "preferredLanguage": "English",
+                    "dealerDetails": {
+                        "dealerId": "X1827",
+                        "dealerWebLogin": "X1827E"
+                    },
+                    "siebelDetails": {
+                        "SCID": "2-C0ABVTP"
+                    },
+                    "appCustomerRICADetails": {
+                        "customerIDCountry": "ZA",
+                        "customerIDNumber": 7301085134083,
+                        "customerIDType": "SA ID No",
+                        "customerFirstName": "Stuart",
+                        "customerSurname": "Jones",
+                        "customerTitle": "MR",
+                        "customerPreferredLanguage": "ENG",
+                        "areaNetworkCode": 81,
+                        "dialNumber": 1111111,
+                        "username": "VANONSELENS",
+                        "street1": "1 Street",
+                        "street2": "2 Street",
+                        "suburb": "JOHANNESBURG",
+                        "postalCode": 2000,
+                        "ricaDocsVerified": true
+                    },
+                    "generalNotesIn": "",
+                    "digitalOnBoardingVerified": "Y"
+                }
+            }
+        }
+    }
+}

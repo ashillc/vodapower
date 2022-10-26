@@ -1,0 +1,4 @@
+run 2 terminals
+
+terminal 1: run expo start for the front
+terminal 2 : run ->  npx json-server -p 3500 -w data/db.json 
