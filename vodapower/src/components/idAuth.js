@@ -1,166 +1,118 @@
-import
-  React, {
-  Component
-} from 'react';
-
+import React, { Component } from 'react';
+//import react in our code.
+ 
 import {
+  Text,
   StyleSheet,
   View,
-  Keyboard,
+  FlatList,
+  TextInput,
+  ActivityIndicator,
+  Alert,
 } from 'react-native';
-
-import
-  PropTypes
-from 'prop-types';
-
-import {
-  Colors
-} from './styles';
-
-import {
-  NotificationType,
-} from './constants';
-
-import InputBox from './input';
-
-import {
-  SAIDErrorMessages
-} from './constants';
-
-export class IdAuth extends Component {
-
-//   static propTypes = {
-//     onValidChange: PropTypes.func.isRequired,
-//     onIDChange: PropTypes.func.isRequired,
-//   }
-
-  state = {
-    saIDNotiShow: true,
-    saIDNotiMsg: SAIDErrorMessages.Standard,
-    saIDNotiType: NotificationType.Info,
-    saIDNumber: '',
-    isValidMsisdn:'',
-  };
-
-  handleSaID = (saID) => {
-
-    this.setState({
-      saIDNumber: saID
-    }, this.validate);
-  };
-
-  handleMSISDNChange = (notificationMsisdn) => {
-
-    // notificationMsisdn = notificationMsisdn.trim();
-    // const isValidMsisdn = AppCore.Validation.isValidMsisdn(notificationMsisdn);
-
-    this.setState({
-      isValidMsisdn,
-      notificationMsisdn: notificationMsisdn,
-      msisdnHint: !isValidMsisdn
-        ? Messages.InvalidMsisdnMessage
-        : Messages.MsisdnHint
-    }, this.validate);
-
-  };
-
-  validate = () => {
-
-    let isActive = this.validateSaID(this.state.saIDNumber);
-
-    if (typeof this.props.onValidChange === 'function') {
-
-      this.props.onValidChange(isActive);
-    }
-
-    if (typeof this.props.onIDChange === 'function') {
-
-      this.props.onIDChange(this.state.saIDNumber);
-    }
+//import all the components we are going to use.
+ 
+export default class IdAuth extends Component {
+  constructor(props) {
+    super(props);
+    //setting default state
+    this.state = { isLoading: true, text: '' };
+    this.arrayholder = [];
   }
-
-  validateSaID = (value) => {
-
-    const isValid = AppCore.Validation.isValidID(value);
-
-    if (isValid) {
-
-      this.setState({
-        saIDNotiShow: false
+ 
+  componentDidMount() {
+    return fetch('https://jsonplaceholder.typicode.com/posts')
+      .then(response => response.json())
+      .then(responseJson => {
+        this.setState(
+          {
+            isLoading: false,
+            dataSource: responseJson
+          },
+          function() {
+            this.arrayholder = responseJson;
+          }
+        );
+      })
+      .catch(error => {
+        console.error(error);
       });
-
-      return isValid;
-    }
-
-    this.setState({
-      saIDNotiShow: true,
-      saIDNotiType: NotificationType.Error,
-      saIDNotiMsg: SAIDErrorMessages.Invalid
+  }
+  SearchFilterFunction(text) {
+    //passing the inserted text in textinput
+    const newData = this.arrayholder.filter(function(item) {
+      //applying filter for the inserted text in search bar
+      const itemData = item.title ? item.title.toUpperCase() : ''.toUpperCase();
+      const textData = text.toUpperCase();
+      return itemData.indexOf(textData) > -1;
     });
-
-    return isValid;
-  };
-
-  render = () => {
-
-    const {
-      saIDNumber
-    } = this.state;
-
+    this.setState({
+      //setting the filtered newData on datasource
+      //After setting the data it will automatically re-render the view
+      dataSource: newData,
+      text: text,
+    });
+  }
+  ListViewItemSeparator = () => {
+    //Item sparator view
     return (
       <View
-        style={styles.cardContainer}>
-
-        <View style={styles.rowContainerTop}
-          accessible={true}
-          accessibiltyLabel={'ID number details'}>
-
-          <InputBox
-            accessibilityLabel={this.state.saIDNumber}
-            style={styles.inputTextStyle}
-            placeholder={'Enter ID number'}
-            source={''}
-            maxLength={13}
-            onStateChange={(saID) => this.handleSaID(saID)}
-            value={this.state.saID}
-            onBlur={() => this.validateSaID(saIDNumber)}
-            showNotification={this.state.saIDNotiShow}
-            notificationMessage={this.state.saIDNotiMsg}
-            notificationType={this.state.saIDNotiType}
-            onSubmit={Keyboard.dismiss}
-          />
-
-          
-        <InputBox
-            style={ styles.inputTextStyle }
-            source={ '' }
-            placeholder='Cellphone number'
-            onStateChange={ this.handleMSISDNChange }
-            onSubmit={ () => Keyboard.dismiss() }
-            showNotification={ true }
-            notificationMessage={ this.state.msisdnHint}     
-          />
+        style={{
+          height: 0.3,
+          width: '90%',
+          backgroundColor: '#080808',
+        }}
+      />
+    );
+  };
+  render() {
+    if (this.state.isLoading) {
+      //Loading View while data is loading
+      return (
+        <View style={{ flex: 1, paddingTop: 20 }}>
+          <ActivityIndicator />
         </View>
+      );
+    }
+    return (
+      //ListView to show with textinput used as search bar
+      <View style={styles.viewStyle}>
+        <TextInput
+          style={styles.textInputStyle}
+          onChangeText={text => this.SearchFilterFunction(text)}
+          value={this.state.text}
+          underlineColorAndroid="transparent"
+          placeholder="Search Here"
+        />
+        <FlatList
+          data={this.state.dataSource}
+          ItemSeparatorComponent={this.ListViewItemSeparator}
+          renderItem={({ item }) => (
+            <Text style={styles.textStyle}>{item.title}</Text>
+          )}
+          enableEmptySections={true}
+          style={{ marginTop: 10 }}
+          keyExtractor={(item, index) => index.toString()}
+        />
       </View>
     );
   }
 }
-
 const styles = StyleSheet.create({
-  cardContainer: {
-    flex: 1,
-    alignItems: 'center',
+  viewStyle: {
     justifyContent: 'center',
-    marginTop: 5,
-    paddingBottom: 16
+    flex: 1,
+    marginTop: 40,
+    padding: 16,
   },
-  inputTextStyle: {
-    fontSize: 14,
-    // fontFamily: Fonts.VodafoneRegular,
-    color: Colors.Grey,
+  textStyle: {
+    padding: 10,
   },
-  rowContainerTop: {
-    paddingHorizontal: 2,
-    paddingVertical: 5,
+  textInputStyle: {
+    height: 40,
+    borderWidth: 1,
+    paddingLeft: 10,
+    borderColor: '#009688',
+    backgroundColor: '#FFFFFF',
   },
 });

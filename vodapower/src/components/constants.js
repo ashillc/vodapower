@@ -1,12 +1,21 @@
 
-
 export const UpgradeSteps = [
-  // 'Usage',
   'Deals',
-  'Data & Minutes',
-  'Checkout',
-  'Success'
+  'Data',
+  'Voice',
+  'Accessories',
+  'Streaming',
+  'Busket',
+  // 'Success'
 ];
+
+export const ModalType = {
+  Error: 'error',
+  Warning: 'warning',
+  Info: 'info',
+  Success: 'success',
+  Pending: 'pending'
+};
 
 
 export const CacheStrategy = {
@@ -359,41 +368,305 @@ export const VasDeal = [
       "Allocation_GB": 30,
       "price_incl_vat": 349
     },
-    {
-      "id": "11",
-      "Service_Type": "Voice",
-      "Product_Description": " Voice 100Min",
-      "Allocation_Min": 100,
-      "Price_incl_Vat": 55
-    },
-    {
-      "id": "12",
-      "Service_Type": "Voice",
-      "Product_Description": " Voice 1000Min",
-      "Allocation_Min": 1000,
-      "Price_incl_Vat": 400
-    },
-    {
-      "id": "13",
-      "Service_Type": "Voice",
-      "Product_Description": " Voice 500Min",
-      "Allocation_Min": 500,
-      "Price_incl_Vat": 225
-    },
-    {
-      "id": "14",
-      "Service_Type": "Voice",
-      "Product_Description": " Voice 50Min",
-      "Allocation_Min": 50,
-      "Price_incl_Vat": 30
-    },
-    {
-      "id": "15",
-      "Service_Type": "Voice",
-      "Product_Description": " Voice 250Min",
-      "Allocation_Min": 250,
-      "Price_incl_Vat": 125
-    }
-
 ]
-  
+
+export const Voicedeal =[
+  {
+    "id": "11",
+    "Service_Type": "Voice",
+    "Product_Description": " Voice 100Min",
+    "Allocation_Min": 100,
+    "Price_incl_Vat": 55
+  },
+  {
+    "id": "12",
+    "Service_Type": "Voice",
+    "Product_Description": " Voice 1000Min",
+    "Allocation_Min": 1000,
+    "Price_incl_Vat": 400
+  },
+  {
+    "id": "13",
+    "Service_Type": "Voice",
+    "Product_Description": " Voice 500Min",
+    "Allocation_Min": 500,
+    "Price_incl_Vat": 225
+  },
+  {
+    "id": "14",
+    "Service_Type": "Voice",
+    "Product_Description": " Voice 50Min",
+    "Allocation_Min": 50,
+    "Price_incl_Vat": 30
+  },
+  {
+    "id": "15",
+    "Service_Type": "Voice",
+    "Product_Description": " Voice 250Min",
+    "Allocation_Min": 250,
+    "Price_incl_Vat": 125
+  }
+]
+
+export const AccessoriesDeals = [
+  {
+    "MANUFACTURER": "SAMSUNG",
+    "MODEL": "Galaxy",
+    "CATEGORY_TYPE": "EARBUDS",
+    "DEVICE_TYPE": "ACCESSORY",
+    "DESCRIPTION": "Samsung Galaxy Buds Pro Black",
+    "PRICE": 2319,
+    "PRICE_MNTLY_24": 97,
+    "PRICE_MNTLY_36": " 64",
+    "COLOUR": "Black",
+    "EFFECTIVE_FROM_DTM": "25-JUL-21",
+    "EFFECTIVE_TO_DTM": "01-JAN-00",
+    "image_url": "https://snapcraze.co.za/wp-content/uploads/2021/02/buds-pro-black.png"
+  },
+  {
+    "MANUFACTURER": "APPLE",
+    "MODEL": "Airpods",
+    "CATEGORY_TYPE": "EARBUDS",
+    "DEVICE_TYPE": "ACCESSORY",
+    "DESCRIPTION": "Apple Airpods Pro With Wireless Case",
+    "PRICE": 3309,
+    "PRICE_MNTLY_24": " 138",
+    "PRICE_MNTLY_36": " 92",
+    "COLOUR": "White",
+    "EFFECTIVE_FROM_DTM": "25-JUL-21",
+    "EFFECTIVE_TO_DTM": "01-JAN-00",
+    "image_url": "https://snapcraze.co.za/wp-content/uploads/2019/09/airpods-2.png"
+  },
+  {
+    "MANUFACTURER": "SAMSUNG",
+    "MODEL": "Galaxy",
+    "CATEGORY_TYPE": "EARBUDS",
+    "DEVICE_TYPE": "ACCESSORY",
+    "DESCRIPTION": "Samsung Galaxy Buds Pro Violet",
+    "PRICE": 2319,
+    "PRICE_MNTLY_24": " 97",
+    "PRICE_MNTLY_36": " 64",
+    "COLOUR": "Violet",
+    "EFFECTIVE_FROM_DTM": "01-FEB-22",
+    "EFFECTIVE_TO_DTM": "01-JAN-00",
+    "image_url": "https://www.adjoasamsung.co.za/wp-content/uploads/2021/01/za-galaxy-buds-pro-r190-sm-r190nzvaxfa-363113086-247x296.png"
+  },
+  {
+    "MANUFACTURER": "SAMSUNG",
+    "MODEL": "Galaxy",
+    "CATEGORY_TYPE": "WATCH",
+    "DEVICE_TYPE": "ACCESSORY",
+    "DESCRIPTION": "Galaxy Watch 4 Classic 46mm Black LTE",
+    "PRICE": 5359,
+    "PRICE_MNTLY_24": " 223",
+    "PRICE_MNTLY_36": " 149",
+    "COLOUR": "Black",
+    "EFFECTIVE_FROM_DTM": "01-SEP-21",
+    "EFFECTIVE_TO_DTM": "01-JAN-00",
+    "image_url": "https://images.samsung.com/is/image/samsung/p6pim/za/2108/gallery/za-galaxy-watch4-classic-399607-sm-r890nzkaxfa-thumb-481673603?$480_480_PNG$"
+  },
+  {
+    "MANUFACTURER": "SAMSUNG",
+    "MODEL": "Galaxy",
+    "CATEGORY_TYPE": "WATCH",
+    "DEVICE_TYPE": "ACCESSORY",
+    "DESCRIPTION": "Galaxy Watch 4 Classic 46mm SILVER LTE",
+    "PRICE": 5359,
+    "PRICE_MNTLY_24": " 223",
+    "PRICE_MNTLY_36": " 149",
+    "COLOUR": "Silver",
+    "EFFECTIVE_FROM_DTM": "01-SEP-21",
+    "EFFECTIVE_TO_DTM": "01-JAN-00",
+    "image_url": "https://images.samsung.com/za/galaxy-watch4-classic/feature/galaxy-watch4-classic-black-health-over.jpg"
+  },
+  {
+    "MANUFACTURER": "SAMSUNG",
+    "MODEL": "Galaxy",
+    "CATEGORY_TYPE": "WATCH",
+    "DEVICE_TYPE": "ACCESSORY",
+    "DESCRIPTION": "Galaxy Watch 4 Classic 42mm BLACK LTE",
+    "PRICE": 5359,
+    "PRICE_MNTLY_24": " 223",
+    "PRICE_MNTLY_36": " 149",
+    "COLOUR": "Black",
+    "EFFECTIVE_FROM_DTM": "01-SEP-21",
+    "EFFECTIVE_TO_DTM": "01-JAN-00",
+    "image_url": "https://images.samsung.com/za/galaxy-watch4-classic/feature/galaxy-watch4-classic-black-blood-pressure-ecg-over-mo.jpg"
+  },
+  {
+    "MANUFACTURER": "SAMSUNG",
+    "MODEL": "Galaxy",
+    "CATEGORY_TYPE": "WATCH",
+    "DEVICE_TYPE": "ACCESSORY",
+    "DESCRIPTION": "Galaxy Watch 4 Classic 42mm SILVER LTE",
+    "PRICE": 5359,
+    "PRICE_MNTLY_24": " 223",
+    "PRICE_MNTLY_36": " 149",
+    "COLOUR": "Silver",
+    "EFFECTIVE_FROM_DTM": "01-SEP-21",
+    "EFFECTIVE_TO_DTM": "01-JAN-00",
+    "image_url": "https://images.samsung.com/is/image/samsung/p6pim/za/2108/gallery/za-galaxy-watch4-classic-399598-sm-r885fzsaxfa-481673234?$650_519_PNG$"
+  },
+  {
+    "MANUFACTURER": "SAMSUNG",
+    "MODEL": "Galaxy",
+    "CATEGORY_TYPE": "WATCH",
+    "DEVICE_TYPE": "ACCESSORY",
+    "DESCRIPTION": "Samsung Galaxy watch 5 Pro LTE 40mm SILV",
+    "PRICE": 4739,
+    "PRICE_MNTLY_24": " 197",
+    "PRICE_MNTLY_36": " 132",
+    "COLOUR": "Silver",
+    "EFFECTIVE_FROM_DTM": "03-OCT-22",
+    "EFFECTIVE_TO_DTM": "01-JAN-00",
+    "image_url": "https://images.samsung.com/is/image/samsung/p6pim/za/2208/gallery/za-galaxy-watch5-40mm-431056-sm-r905fzsaxfa-533189806?$650_519_PNG$"
+  },
+  {
+    "MANUFACTURER": "SAMSUNG",
+    "MODEL": "Galaxy",
+    "CATEGORY_TYPE": "WATCH",
+    "DEVICE_TYPE": "ACCESSORY",
+    "DESCRIPTION": "Samsung Galaxy watch 5 LTE 40mm GRAY",
+    "PRICE": 4739,
+    "PRICE_MNTLY_24": " 197",
+    "PRICE_MNTLY_36": " 132",
+    "COLOUR": "Gray",
+    "EFFECTIVE_FROM_DTM": "03-OCT-22",
+    "EFFECTIVE_TO_DTM": "01-JAN-00",
+    "image_url": "https://images.samsung.com/za/galaxy-watch5/feature/galaxy-watch5-performance-right-visual-mo.jpg"
+  },
+  {
+    "MANUFACTURER": "SAMSUNG",
+    "MODEL": "Galaxy",
+    "CATEGORY_TYPE": "WATCH",
+    "DEVICE_TYPE": "ACCESSORY",
+    "DESCRIPTION": "Samsung Galaxy watch 5 LTE 40mm GOLD",
+    "PRICE": 4739,
+    "PRICE_MNTLY_24": " 197",
+    "PRICE_MNTLY_36": " 132",
+    "COLOUR": "Gold",
+    "EFFECTIVE_FROM_DTM": "03-OCT-22",
+    "EFFECTIVE_TO_DTM": "01-JAN-00",
+    "image_url": "https://images.samsung.com/is/image/samsung/p6pim/za/2208/gallery/za-galaxy-watch5-40mm-431056-sm-r905fzdaxfa-533189720?$650_519_PNG$"
+  },
+  {
+    "MANUFACTURER": "SAMSUNG",
+    "MODEL": "Galaxy",
+    "CATEGORY_TYPE": "DEVICE PROTECTION",
+    "DEVICE_TYPE": "ACCESSORY",
+    "DESCRIPTION": "PANZERGLASS SAMSUNG GALAXY S22 ANTI B CA",
+    "PRICE": 225,
+    "PRICE_MNTLY_24": " 9",
+    "PRICE_MNTLY_36": " 6",
+    "COLOUR": "Clear",
+    "EFFECTIVE_FROM_DTM": "15-MAR-22",
+    "EFFECTIVE_TO_DTM": "01-JAN-00",
+    "image_url": "https://online.celcom.co.za/images/thumbs/1976653_panzerglass-samsung-galaxy-s22-ultra-anti-b-case_510.jpeg"
+  },
+  {
+    "MANUFACTURER": "SAMSUNG",
+    "MODEL": "Galaxy",
+    "CATEGORY_TYPE": "DEVICE PROTECTION",
+    "DEVICE_TYPE": "ACCESSORY",
+    "DESCRIPTION": "PANZERGLASS SAMSUNG GALAXY S22 Plus",
+    "PRICE": 325,
+    "PRICE_MNTLY_24": " 14",
+    "PRICE_MNTLY_36": " 9",
+    "COLOUR": "Clear",
+    "EFFECTIVE_FROM_DTM": "15-MAR-22",
+    "EFFECTIVE_TO_DTM": "01-JAN-00",
+    "image_url": "https://cdn.shopify.com/s/files/1/0274/5483/2778/products/PG_Product_Picture_Website_0371_1.jpg?v=1643726486"
+  },
+  {
+    "MANUFACTURER": "SAMSUNG",
+    "MODEL": "Galaxy",
+    "CATEGORY_TYPE": "DEVICE PROTECTION",
+    "DEVICE_TYPE": "ACCESSORY",
+    "DESCRIPTION": "PANZERGLASS SAMSUNG GALAXY S22 ULTRA ANT",
+    "PRICE": 225,
+    "PRICE_MNTLY_24": " 9",
+    "PRICE_MNTLY_36": " 6",
+    "COLOUR": "Clear",
+    "EFFECTIVE_FROM_DTM": "15-MAR-22",
+    "EFFECTIVE_TO_DTM": "01-JAN-00",
+    "image_url": "https://cdn.shopify.com/s/files/1/0274/5483/2778/products/PG_Product_Picture_Website_0371_1.jpg?v=1643726486"
+  },
+  {
+    "MANUFACTURER": "SAMSUNG",
+    "MODEL": "Galaxy",
+    "CATEGORY_TYPE": "DEVICE PROTECTION",
+    "DEVICE_TYPE": "ACCESSORY",
+    "DESCRIPTION": "PANZERGLASS SAMSUNG GALAXY S22 ULRA TGSP",
+    "PRICE": 325,
+    "PRICE_MNTLY_24": " 14",
+    "PRICE_MNTLY_36": " 9",
+    "COLOUR": "Clear",
+    "EFFECTIVE_FROM_DTM": "15-MAR-22",
+    "EFFECTIVE_TO_DTM": "01-JAN-00",
+    "image_url": "https://online.celcom.co.za/images/thumbs/1976677_panzerglass-samsung-galaxy-s22-ulra-tgsp-cf-anti-b_510.jpeg"
+  },
+  {
+    "MANUFACTURER": "SAMSUNG",
+    "MODEL": "Galaxy",
+    "CATEGORY_TYPE": "DEVICE PROTECTION",
+    "DEVICE_TYPE": "ACCESSORY",
+    "DESCRIPTION": "PANZERGLASS SAMSUNG GALAXY S22 Plus ANTI",
+    "PRICE": 225,
+    "PRICE_MNTLY_24": " 9",
+    "PRICE_MNTLY_36": " 6",
+    "COLOUR": "Clear",
+    "EFFECTIVE_FROM_DTM": "15-MAR-22",
+    "EFFECTIVE_TO_DTM": "01-JAN-00",
+    "image_url": "https://www.makro.co.za/sys-master/images/h97/hc3/11445313962014/c23e9a43-2761-49fd-b08f-09f2fc7221e4-qpn13_large"
+  },
+  {
+    "MANUFACTURER": "SAMSUNG",
+    "MODEL": "Galaxy",
+    "CATEGORY_TYPE": "DEVICE PROTECTION",
+    "DEVICE_TYPE": "ACCESSORY",
+    "DESCRIPTION": "PANZERGLASS SAMSUNG GALAXY S22 TGSP CF A",
+    "PRICE": 325,
+    "PRICE_MNTLY_24": " 14",
+    "PRICE_MNTLY_36": " 9",
+    "COLOUR": "Clear",
+    "EFFECTIVE_FROM_DTM": "15-MAR-22",
+    "EFFECTIVE_TO_DTM": "01-JAN-00",
+    "image_url": "https://vodabucks.celcom.co.za/images/thumbs/1884460_panzerglass-samsung-galaxy-s22-tgsp-cf-anti-b_510.jpeg"
+  },
+]
+
+
+export const EntertainmentDeals= [
+  {
+    "DESCRIPTION": "Showmax",
+    "SERVICE_NAME": "Showmax",
+    "PARTNER_ID": "MULTICHOICE",
+    "PACKAGE_ID": "multichoice-showmax",
+    "PRICE_MNTLY_24": 99,
+    "image_url": "https://www.dignited.com/wp-content/uploads/2018/09/Showmax.jpg"
+  },
+  {
+    "DESCRIPTION": "Netflix SA",
+    "SERVICE_NAME": "NetflixSA",
+    "PARTNER_ID": "NETFLIX",
+    "PACKAGE_ID": "NetflixSA",
+    "PRICE_MNTLY_24": 99,
+    "image_url": "https://i.pcmag.com/imagery/reviews/05cItXL96l4LE9n02WfDR0h-5..v1582751026.png"
+  },
+  {
+    "DESCRIPTION": "Apple Music",
+    "SERVICE_NAME": "AppleMusic",
+    "PARTNER_ID": "APPLEMUSIC",
+    "PACKAGE_ID": "AppleMusic",
+    "PRICE_MNTLY_24": 59.99,
+    "image_url": "https://images.macrumors.com/t/o6MnbRbIYAFEbDpeybZdSl7ffjQ=/1600x/http://images.macrumors.com/article-new/2018/04/apple-music-icon-for-ios-100594580-orig-250x250.jpg"
+  },
+  {
+    "DESCRIPTION": "Amazon Video",
+    "SERVICE_NAME": "AmazonVideo",
+    "PARTNER_ID": "AMAZONPRIME",
+    "PACKAGE_ID": "AmazonVideo",
+    "PRICE_MNTLY_24": 79.99,
+    "image_url": "http://store-images.s-microsoft.com/image/apps.32357.14618985536919905.4b30e4f3-f7a1-4421-840c-2cc97b10e8e0.6e7a96f1-33ad-4447-8e2b-7de730f9a05e"
+  }
+]

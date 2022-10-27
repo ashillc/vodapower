@@ -18,18 +18,18 @@ const  Vetting = ({ navigation }) =>   {
           borderRadius:100,
           backgroundColor: '#ffffff'}}>
             <Text 
-        style={{color:'#E60000',
+        style={{color:'#C4C4C4',
           fontSize : 16,
           margin:'auto',
-          marginBottom:10,
+          marginBottom:30,
           textAlign: 'center'}}>You may spend:</Text>
 
           { UserInfo.map((data) => 
           <Text 
         style={{color:'#E60000',
-          fontSize : 26,
-          marginBottom:20 ,
-          textAlign: 'center'}}>{data.ApprovedAmount}</Text>
+          fontSize : 18,
+          marginBottom:10 ,
+          textAlign: 'center'}}>{data.ApprovedAmount} </Text>
         )}
         </View>
         <Text 

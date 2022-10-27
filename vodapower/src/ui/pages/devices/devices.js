@@ -9,7 +9,9 @@ import {
   ScrollView,
   FlatList,
   View,
-  TouchableOpacity
+  TouchableOpacity,
+  TextInput,
+  ActivityIndicator
 } from 'react-native';
 
 import {
@@ -65,6 +67,8 @@ import BusketCard from '../../../components/busketcard';
 // } from 'app/ui/sales/upgrades/dealsTagHelper';
 import { DeviceDeals } from '../../../components/constants';
 
+// import { FilterDeviceOptions } from '../../../components/filterdevice';
+
 export class Deals extends Component {
 
   // insight = AppCore.Insight.with('Upgrades', 'RecommendedDeals');
@@ -80,7 +84,9 @@ export class Deals extends Component {
     manufacturerItems: [],
     deviceItems: [],
     noDeals: false,
-    findDeal: false
+    findDeal: false,
+    text:'',
+    amount:'R1200'
   };
 
 
@@ -104,6 +110,22 @@ export class Deals extends Component {
     );
   }
 
+  SearchFilterFunction(text) {
+    //passing the inserted text in textinput
+    const newData = DeviceDeals.filter(function(item) {
+      //applying filter for the inserted text in search bar
+      const itemData = item.DESCRIPTION ;
+      const textData = text.toUpperCase();
+      return itemData.indexOf(textData) > -1;
+    });
+    this.setState({
+      //setting the filtered newData on datasource
+      //After setting the data it will automatically re-render the view
+      // DeviceDeals: newData,
+      text: text,
+    });
+  }
+
   listEmptyComponent = () => {
 
     return (
@@ -116,122 +138,18 @@ export class Deals extends Component {
   }
 
   render = () => {
-
     return (
         <>
+  <ScrollView style={styles.scrollViewStyle}>
 
-        { this.state.noDeals
-
-          ? <View style={styles.container}
-              accessible={true}
-              accessibiltyLabel={'Deals filter screen'}>
-
-            <HorizontalStepper
-              currentStep={1}
-              steps={UpgradeSteps}
-              hasRightComponent={false} />
-
-            { this.state.findDeal
-                && <View style={styles.findDeal}>
-                  <Text
-                    accessibilityRole={'header'}
-                    accessibilityLabel={'Let\'s find a deal'}
-                    style={styles.boldText}>
-
-                    Let's find a deal
-                  </Text>
-                  <Text style={styles.plainText}>
-
-                    Please configure the following filters:
-                  </Text>
-                </View>
-            }
-
-            <View>
-
-              <FilterDeviceOptions
-                deviceWithContract={this.state.deviceWithContract}
-                actionOne={() => {
-
-                  this.changeDeviceOptions(true);
-                }}
-                actionTwo={() => {
-
-                  this.changeDeviceOptions(false);
-                }}
-              />
-            </View>
-
-
-            { this.state.loadingManufacturers
-
-              ? <View style={styles.spinner}>
-
-                <RebrandSpinner
-                  color={Colors.Red}
-                  size={150}
-                  animationTime={3000}
-                />
-              </View>
-
-              : <View>
-
-                { this.state.deviceWithContract
-
-                  && <View style={styles.filterOptionsContainer}>
-                  {Devices.map((deals) =>{
-                    <FilterItem
-                      name={'Brands'}
-                      onChange={this.changeSelectedManufacturer}
-                      items={deals.device}
-                      selected={this.state.deviceManufacturer}
-                    />
-                  })}
-                    { this.state.deviceWithContract && this.state.deviceManufacturer !== 'All'
-
-                      && 
-                      <View style={styles.filterOptionsContainer}>
-                    {Devices.map((deals) =>{
-                        <FilterItem
-                          name={'Models'}
-                          onChange={this.changeSelectedModel}
-                          items={deals.device}
-                          selected={this.state.device}
-                        />
-                      })}
-                      </View>
-                    }
-
-                  </View>
-                }
-
-              </View>
-            }
-
-            <FilterButtons
-              applyAction={() => {
-
-                this.getRecommendedDeals();
-              }}
-              resetAction={() => {
-
-                this.reset();
-              }}
-            />
-
-          </View>
-
-          : <ScrollView style={styles.scrollViewStyle}>
-
-            <HorizontalStepper
-              currentStep={1}
-              steps={UpgradeSteps}
-              hasRightComponent={false} />
-
-          <BusketCard>
-            
+            <BusketCard
+            amount={this.state.amount}
+            >
           </BusketCard>
-
+            <HorizontalStepper
+              currentStep={1}
+              steps={UpgradeSteps}
+              hasRightComponent={false} />
             <View
               accessible={true}
               accessibiltyLabel={'Deals screen'}
@@ -246,17 +164,9 @@ export class Deals extends Component {
 
                     Deals
                 </Text>
-                <TouchableOpacity
-                  accessibilityRole={'button'}
-                  accessibilityLabel={'Filter'}
-                  accessibiltyHint={'Will redirect you to the filter screen'}
-                  onPress={() => this.props.navigation.navigate('User')}
-                  style={styles.redRightText}>
-
-                  <Text style={styles.redRightText}>
-                   FILTER
-                  </Text>
-                </TouchableOpacity>
+                <View style={styles.viewStyle}>
+           
+          </View>
 
               </View>
 
@@ -270,31 +180,23 @@ export class Deals extends Component {
                    These deals are perfect for you!
                 </Text>
 
-                {/* <Text style={styles.detailsText}>
-
-                    Get a great device PLUS all the data and minutes you need.
-                </Text> */}
               </View>
-
-               { this.state.isLoading ?
+              <TextInput
+                  style={styles.textInputStyle}
+                  onChangeText={text => this.SearchFilterFunction(text)}
+                  value={this.state.text}
+                  underlineColorAndroid="transparent"
+                  placeholder="Filter"
+        />
                  <FlatList
                   data={DeviceDeals}
                   keyExtractor={(item) => item.id}
                   renderItem={this.renderDeals}
                   ListEmptyComponent={this.listEmptyComponent} />
-                : 
-                  <View style={styles.subLoaderContainer}>
-                  <RebrandSpinner
-                    color={Colors.Red}
-                    size={70}
-                    animationTime={3000} />
-                </View>
-              }  
+                 
 
             </View>
           </ScrollView>
-
-        }
 </>
     );
   }
@@ -325,6 +227,15 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     color: Colors.Black,
     width: '100%'
+  },
+  textInputStyle: {
+    height: 40,
+    borderWidth: 1,
+    paddingLeft: 10,
+    borderColor: '#009688',
+    backgroundColor: '#FFFFFF',
+    fontSize:15,
+    borderRadius:10,
   },
   redRightText: {
  //   fontFamily: 'VodafoneRg',

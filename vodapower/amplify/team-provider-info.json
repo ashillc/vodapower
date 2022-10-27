@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-vodapower-dev-94319-authRole",
+      "UnauthRoleArn": "arn:aws:iam::005581958643:role/amplify-vodapower-dev-94319-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::005581958643:role/amplify-vodapower-dev-94319-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-vodapower-dev-94319-deployment",
+      "UnauthRoleName": "amplify-vodapower-dev-94319-unauthRole",
+      "StackName": "amplify-vodapower-dev-94319",
+      "StackId": "arn:aws:cloudformation:eu-west-1:005581958643:stack/amplify-vodapower-dev-94319/0985a930-55cb-11ed-b08a-0a53396c882b",
+      "AmplifyAppId": "di1fot8tugzxj"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "di1fot8tugzxj",
+          "type": "manual"
+        }
+      }
+    }
+  }
+}

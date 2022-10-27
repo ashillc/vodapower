@@ -54,7 +54,8 @@ export class VasDeals extends Component{
         manufacturerItems: [],
         deviceItems: [],
         noDeals: false,
-        findDeal: false
+        findDeal: false,
+        amount:'R428'
       };
 
     renderVas = ({item }) => {
@@ -63,6 +64,7 @@ export class VasDeals extends Component{
             description={item.Product_Description}
             discount={item.Discount}
             cost={item.price_incl_vat}
+            navigation={() => this.props.navigation.navigate('Voice')}
             />
         )
     }
@@ -184,14 +186,17 @@ export class VasDeals extends Component{
 
 : <ScrollView style={styles.scrollViewStyle}>
 
+  
+<BusketCard
+amount={this.state.amount}
+>
+  
+  </BusketCard>
   <HorizontalStepper
     currentStep={2}
     steps={UpgradeSteps}
     hasRightComponent={false} />
 
-<BusketCard>
-  
-</BusketCard>
 
   <View
     accessible={true}

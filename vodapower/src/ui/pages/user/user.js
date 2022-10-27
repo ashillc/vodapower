@@ -79,7 +79,7 @@ export default function UserDetails({ navigation }) {
     <Button
     style={{marginLeft:2,marginBottom: 10,width: '50%'}} 
     text='Next'
-    onPress={() => navigation.navigate("Vetting")}
+    onPress={() => navigation.navigate("Approved")}
     >
     </Button>
     {/* </Link> */}

@@ -2,7 +2,7 @@ export const UserInfo = [
     {
         userId:"5903120027081",
         userNumber:"0824472855",
-        ApprovedAmount:"R 10189"
+        ApprovedAmount:"R1200 monthly"
     },
     {
         userID:"5903120027081",

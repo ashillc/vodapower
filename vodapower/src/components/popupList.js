@@ -23,8 +23,8 @@ export class PopupList extends Component {
     title: PropTypes.string,
     // style: ViewPropTypes.style,
     // pickerStyle: ViewPropTypes.style,
-    onChange: PropTypes.func.isRequired,
-    items: PropTypes.arrayOf(PropTypes.string).isRequired,
+    // onChange: PropTypes.func.isRequired,
+    // items: PropTypes.arrayOf(PropTypes.string).isRequired,
     mode: PropTypes.oneOf([
       'dialog',
       'dropdown'
@@ -43,94 +43,94 @@ export class PopupList extends Component {
     pickerItems: []
   };
 
-  showActionSheet = () => {
+  // showActionSheet = () => {
 
-    const {
-      questions
-    } = this.state;
+  //   const {
+  //     questions
+  //   } = this.state;
 
-    ActionSheetIOS.showActionSheetWithOptions(
-      {
-        options: questions,
-        title: this.props.title,
-        cancelButtonIndex: questions.length - 1
-      },
-      (buttonIndex) => {
+  //   ActionSheetIOS.showActionSheetWithOptions(
+  //     {
+  //       options: questions,
+  //       title: this.props.title,
+  //       cancelButtonIndex: questions.length - 1
+  //     },
+  //     (buttonIndex) => {
 
-        if (buttonIndex !== questions.length - 1) {
+  //       if (buttonIndex !== questions.length - 1) {
 
-          this.props.onChange(questions[buttonIndex]);
-        }
-      }
-    );
-  };
+  //         this.props.onChange(questions[buttonIndex]);
+  //       }
+  //     }
+  //   );
+  // };
 
-  onValueChange = (item) => {
+  // onValueChange = (item) => {
 
-    const {
-      onChange
-    } = this.props;
+  //   const {
+  //     onChange
+  //   } = this.props;
 
-    typeof onChange === 'function' && onChange(item);
-  };
+  //   typeof onChange === 'function' && onChange(item);
+  // };
 
-  static getDerivedStateFromProps = (props, state) => {
+  // static getDerivedStateFromProps = (props, state) => {
 
-    if (Platform.OS === 'ios') {
+  //   if (Platform.OS === 'ios') {
 
-      if (props.items && props.items.length > 0) {
+  //     if (props.items && props.items.length > 0) {
 
-        let iosItems = [];
+  //       let iosItems = [];
 
-        iosItems = props.items.slice();
-        iosItems.push('Cancel');
+  //       iosItems = props.items.slice();
+  //       iosItems.push('Cancel');
 
-        if (iosItems !== state.questions) {
+  //       if (iosItems !== state.questions) {
 
-          return {
-            questions: iosItems
-          };
-        }
-      }
+  //         return {
+  //           questions: iosItems
+  //         };
+  //       }
+  //     }
 
-      return null;
-    }
+  //     return null;
+  //   }
 
-    if (props.items && props.items.length > 0) {
+  //   if (props.items && props.items.length > 0) {
 
-      const androidItems = props.items.slice();
+  //     const androidItems = props.items.slice();
 
-      androidItems.unshift('');
+  //     androidItems.unshift('');
 
-      if (androidItems !== state.questions) {
+  //     if (androidItems !== state.questions) {
 
-        const pickerItems = [];
+  //       const pickerItems = [];
 
-        for (let i = 0; i < androidItems.length; i++) {
+  //       for (let i = 0; i < androidItems.length; i++) {
 
-          if (typeof androidItems[i] !== 'string') {
+  //         if (typeof androidItems[i] !== 'string') {
 
-            continue;
-          }
+  //           continue;
+  //         }
 
-          pickerItems.push(
-            <Picker.Item
-              key={i}
-              label={androidItems[i]}
-              value={androidItems[i]}
-            />
-          );
-        }
+  //         pickerItems.push(
+  //           <Picker.Item
+  //             key={i}
+  //             label={androidItems[i]}
+  //             value={androidItems[i]}
+  //           />
+  //         );
+  //       }
 
-        return {
-          questions: props.items,
-          pickerItems: pickerItems
-        };
-      }
-    }
+  //       return {
+  //         questions: props.items,
+  //         pickerItems: pickerItems
+  //       };
+  //     }
+  //   }
 
-    return null;
-  };
+  //   return null;
+  // };
 
   render = () => {
 
@@ -167,7 +167,6 @@ export class PopupList extends Component {
           style
         ]}
       >
-
         {children}
 
         <Picker

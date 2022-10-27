@@ -1,20 +1,11 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-// import  { FiShoppingCart } from 'react-icons/fi';
 
 const BusketCard = ({amount}) => {
   const { basketContainerStyle, priceTextStyle } = styles;
   return (
     <View style={basketContainerStyle}>
-        {/* <FiShoppingCart
-        style={{
-            color:'#828282',  
-            marginLeft: '8em',
-            fontSize: '2em',
-            fontWeight:'1em'
-          }} */}
-        {/* /> */}
-      <Text style={priceTextStyle}>{ amount }</Text>
+      <Text style={priceTextStyle}> Wallet:{amount}</Text>
     </View>
   );
 };
@@ -37,6 +28,8 @@ const styles = {
   },
   priceTextStyle: {
     fontSize: 22,
+    alignText:'center',
+    marginTop:20,
   }, 
 };
 

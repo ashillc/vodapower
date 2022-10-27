@@ -17,6 +17,14 @@ import { VasCard } from './src/components/vasCard';
 import { HomePage } from './src/ui/pages/homescreen/homepage';
 import ApprovedUser from './src/ui/pages/vetting/score';
 import { VasDeals } from './src/ui/pages/devices/vasselector';
+import { PopupList } from './src/components/popupList';
+import { AccessoriesCard } from './src/components/accessoriesCard';
+import { Accessories } from './src/ui/pages/devices/accessories';
+import { DealsFilter } from './src/components/dealsFilter';
+import IdAuth from './src/components/idAuth';
+import { VoiceDeals } from './src/ui/pages/devices/voiceselector';
+import { Streaming } from './src/ui/pages/devices/streaming';
+import { Busket } from './src/ui/pages/devices/busket';
 
 
 const Stack = createStackNavigator();
@@ -25,12 +33,16 @@ export default function App() {
   return (
     <NavigationContainer style={styles.mainContainer}>
       <Stack.Navigator initialRouteName="Shop with Vodapower">
-        <Stack.Screen name="Home" component={HomePage} options={{headerShown: false}} />
+        {/* <Stack.Screen name="Home" component={HomePage} options={{headerShown: false}} />
         <Stack.Screen name="User" component={UserDetails} />
         <Stack.Screen name="Approved" component={ApprovedUser} />
         <Stack.Screen name="Vetting" component={Vetting} />
         <Stack.Screen name="Deals" component={Deals} />
         <Stack.Screen name="Vas" component={VasDeals} />
+        <Stack.Screen name="Voice" component={VoiceDeals} />
+        <Stack.Screen name="Accessory" component={Accessories} />
+        <Stack.Screen name="Streaming" component={Streaming} /> */}
+        <Stack.Screen name="DealsFilter" component={Busket} />
       </Stack.Navigator>
      </NavigationContainer>
   );
